@@ -1,0 +1,187 @@
+* Present Me
+
+Present Me is a Gem that allows you to use xmpfilter (from the rcodetools gem) to use your editor to do presentations in a live-coding style.
+
+** Installation
+
+Add this line to your application's Gemfile:
+
+#+BEGIN_SRC ruby
+gem 'present_me', git: 'git://github.com/iachettifederico/present_me.git'
+#+END_SRC
+
+And then execute:
+
+#+BEGIN_SRC bash
+$ bundle
+#+END_SRC
+
+Or install it yourself as:
+
+#+BEGIN_SRC bash
+$ gem install specific_install
+$ gem specific_install -l git://github.com/iachettifederico/present_me.git
+#+END_SRC
+
+** Usage
+
+Present Me adds some functionality to the Ruby language in order to make a live-coded presentation easy.
+
+To use it, first we need to tell our application to load the gems installed by Bundler (this is not done automatically currently)
+
+#+BEGIN_SRC ruby
+require "rubygems"
+require "bundler/setup"
+require "present_me"
+#+END_SRC
+
+Those three lines allows us to use the goods given by Present Me. I recommend putting it into it's own file and requiring it on our presentations. So let's do so:
+
+#+BEGIN_SRC ruby
+# [presentation_path]/presentation_helper.rb
+require "rubygems"
+require "bundler/setup"
+require "present_me"
+#+END_SRC
+
+Now, let's see what we can do.
+
+First of all, lets just puts some string. Standard Ruby, right?
+#+BEGIN_SRC ruby
+require "./presentation_helper"
+
+puts rand
+# >> ╔════════════════╗
+# >> ║ Console Output ║
+# >> ╚════════════════╝
+# >>
+# >> [3] 0.14912020801624182
+#+END_SRC
+
+What happened there is that Present Me showed us where did the Console Output started and preppended the first 'real' output line with a number. That number is the line number where the puts clause was called.
+
+So in a presentation where you have a lot of lines of output, you know which line corresponds to which puts statement.
+
+Let's say now, that we want to print "Hello World!" and then "Goodbye World!", but we want to leave a space of one line between them. If we use puts, we will get something like this:
+
+#+BEGIN_SRC ruby
+# -*- coding: utf-8 -*-
+require "./presentation_helper"
+
+puts "Hello World!"
+puts
+puts "Goodbye World!"
+# >> ╔════════════════╗
+# >> ║ Console Output ║
+# >> ╚════════════════╝
+# >>
+# >> [4] Hello World!
+# >> [5]
+# >> [6] Goodbye World!
+#+END_SRC
+
+But that "\[5\]" in the middle seems ugly. So we can use the "¡space" helper.
+
+#+BEGIN_SRC ruby
+# -*- coding: utf-8 -*-
+require "./presentation_helper"
+
+puts "Hello World!"
+space
+puts "Goodbye World!"
+#+END_SRC
+
+And now our output will look like this:
+
+#+BEGIN_SRC ruby
+# >> ╔════════════════╗
+# >> ║ Console Output ║
+# >> ╚════════════════╝
+# >>
+# >> [4] Hello World!
+# >>
+# >> [6] Goodbye World!
+#+END_SRC
+
+We can also pass as an argument the number of spaces we want. For instance if we've said "¡space(3)", the output would've looked like this:
+
+#+BEGIN_SRC ruby
+# >> [4] Hello World!
+# >>
+# >>
+# >>
+# >> [6] Goodbye World!
+#+END_SRC
+
+Now, say we are presenting some cool gem to our audience. And say we want to show some text. Maybe we are introducing the gem and ourselves. Present Me gives us a helper to do so, the "¡present" method. This method works just as our old and beloved "puts"
+
+#+BEGIN_SRC ruby
+¡present "Gem name: 'Present Me'"
+¡space 2
+¡present "Creator: Federico Iachetti"
+# >> ╔════════════════╗
+# >> ║ Console Output ║
+# >> ╚════════════════╝
+# >>
+# >> Gem name: 'Present Me'
+# >>
+# >>
+# >> Creator: Federico Iachetti
+#+END_SRC
+
+So, we can show text as it where a slide. This method may be less used than the new "puts", but I wanted to provide a way to have that old behaviour in case you needed it.
+
+But there is another way to create the illusion of a slide. Present Me let's you define custom keywords using the '¡' operator. Let's try to present the last example using those keywords. First we define the keyword, and then we use it.
+
+#+BEGIN_SRC ruby
+# -*- coding: utf-8 -*-
+require "./presentation_helper"
+
+¡gem_name 'Present Me'
+¡gem_creator "Federico Iachetti"
+
+¡gem_name     # => "Present Me"
+¡gem_creator  # => "Federico Iachetti"
+#+END_SRC
+
+Of course, having the declaration of the keyword on the same file you are using to present lacks sense, but if we put it on a separate file, our audience won't know what that keyword means until we run xmpfilter, giving the sense of a slide.
+
+It's important to note that using this method, the evaluated string will appear to the right of the keyword. We can make an incremental slideshow, just adding "# =>" marks at the end of each line and running xmpfilter as we go on with the presentation.
+
+Let's see an example
+
+First step:
+Start talking about some amazing gem
+#+BEGIN_SRC ruby
+¡gem_name  # =>
+¡creator
+¡url
+#+END_SRC
+
+Step two:
+Run xmpfilter to show the name of that awesome gem. 
+#+BEGIN_SRC ruby
+¡gem_name  # => "Present Me"
+¡creator   # =>
+¡url
+#+END_SRC
+Then add the next "# =>" and tell the audience who's the great developer who came out with that idea.
+
+Step three:
+Run xmpfilter again to show the guru's name
+#+BEGIN_SRC ruby
+¡gem_name  # => "Present Me"
+¡creator   # => "Federico Iachetti"
+¡url
+#+END_SRC
+Then add the next "# =>" and continue like this till the end of the presentation.
+
+Well, I hope you liked it.
+
+** Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

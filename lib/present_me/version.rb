@@ -1,0 +1,3 @@
+module PresentMe
+  VERSION = "1.0.0"
+end
