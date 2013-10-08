@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>README</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="README"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-03-04T23:59-0300"/>
+<meta name="author" content="Federico M. Iachetti"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">README</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Present Me</a>
+<ul>
+<li><a href="#sec-1-1">1.1 Installation</a></li>
+<li><a href="#sec-1-2">1.2 Usage</a></li>
+<li><a href="#sec-1-3">1.3 Contributing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Present Me</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Present Me is a Gem that allows you to use xmpfilter (from the rcodetools gem) to use your editor to do presentations in a live-coding style.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Installation</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+Add this line to your application's Gemfile:
+</p>
+
+
+
+<pre class="example">gem 'present_me', git: 'git://github.com/iachettifederico/present_me.git'
+</pre>
+
+
+<p>
+And then execute:
+</p>
+
+
+
+<pre class="example">$ bundle
+</pre>
+
+
+<p>
+Or install it yourself as:
+</p>
+
+
+
+<pre class="example">$ gem install specific_install
+$ gem specific_install -l git://github.com/iachettifederico/present_me.git
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Usage</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<p>
+Present Me adds some functionality to the Ruby language in order to make a live-coded presentation easy.
+</p>
+<p>
+To use it, first we need to tell our application to load the gems installed by Bundler (this is not done automatically currently)
+</p>
+
+
+
+<pre class="example">require "rubygems"
+require "bundler/setup"
+require "present_me"
+</pre>
+
+
+<p>
+Those three lines allows us to use the goods given by Present Me. I recommend putting it into it's own file and requiring it on our presentations. So let's do so:
+</p>
+
+
+
+<pre class="example"># [presentation_path]/presentation_helper.rb
+require "rubygems"
+require "bundler/setup"
+require "present_me"
+</pre>
+
+
+<p>
+Now, let's see what we can do.
+</p>
+<p>
+First of all, lets just puts some string. Standard Ruby, right?
+</p>
+
+
+<pre class="example">require "./presentation_helper"
+
+puts rand
+# &gt;&gt; ╔════════════════╗
+# &gt;&gt; ║ Console Output ║
+# &gt;&gt; ╚════════════════╝
+# &gt;&gt; 
+# &gt;&gt; [3] 0.14912020801624182
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Contributing</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<ol>
+<li>Fork it
+</li>
+<li>Create your feature branch (`git checkout -b my-new-feature`)
+</li>
+<li>Commit your changes (`git commit -am 'Add some feature'`)
+</li>
+<li>Push to the branch (`git push origin my-new-feature`)
+</li>
+<li>Create new Pull Request
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2013-03-04T23:59-0300</p>
+<p class="author">Author: Federico M. Iachetti</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3e with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
